@@ -14,7 +14,9 @@
 
     <section id="title">
         <div class="page-header">
-            <h1>HTTP JS speed tester - Alpha</h1>
+            <div class="alert-box error"><span>Warning! </span>This is an Alpha</div>
+
+            <h1>HTTP JS speed tester</h1>
             <small><script language="Javascript" src="http://www.ip2phrase.com/ip2phrase.asp?template=Your IP  is <IP> and you are connecting from <CITY> via <ISP>."></script> 
 
         </div>
@@ -26,11 +28,11 @@
     </section>
 
     <section>
-        <button data-bind="click: function() { st.downtests($root.conf.downloadStartSize(), Date.now()); }" >Download</button>
-        <button data-bind="click: function() { st.uptests($root.conf.uploadStartSize(), Date.now()) ; }">Upload</button>
+        <button data-bind="click: function() { st.downtests($root.conf.downloadStartSize(), Date.now()); }" ><i class="fa fa-arrow-circle-o-down"></i> | Download</button>
+        <button data-bind="click: function() { st.uptests($root.conf.uploadStartSize(), Date.now()) ; }"><i class="fa fa-arrow-circle-o-up"></i> | Upload</button>
 <!--          <button data-bind="click: function() { st.downtests($root.conf.downloadStartSize(), Date.now(), {upload: $root.conf.uploadStartSize()}); }">Both</button>
- -->        <button data-bind="click: $root.stop.bind($root.stop, true)">Stop</button>
-        <button data-bind="click: $root.allresults.bind($root.allresults, [])">Clear results</button>
+ -->        <button data-bind="click: $root.stop.bind($root.stop, true)"><i class="fa fa-exclamation"></i> | Stop</button>
+        <button data-bind="click: $root.allresults.bind($root.allresults, [])"><i class="fa fa-file-o"></i> | Clear</button>
   
 
         <script type="text/html" id="tpl-test-results">
