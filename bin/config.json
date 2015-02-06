@@ -6,7 +6,7 @@
         "downloadStartSize": "131072"
         ,"uploadStartSize": "2097152"
         ,"downloadSizeModifier": "2"
-        ,"uploadSizeModifier": "2"
+        ,"uploadSizeModifier": "1"
         ,"maxDownloadSize": "52428800"
         ,"maxUploadSize": "52428800"
         ,"maxDownloadTime": "8"
