@@ -4,6 +4,8 @@
   list-style-type: none;  
   color: #336699;
   font-size: 12px;
+  list-style: none;
+ 
 }
 
 .results-details {
@@ -37,7 +39,7 @@
     background-color: #2d2d2d;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 0.7em ;
-    color: #8EB33B;
+    color: #fff;
     overflow: auto;
     text-align: left;
 }}

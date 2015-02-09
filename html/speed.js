@@ -202,18 +202,35 @@ var speedtest = (function() {
     opts.instanceResults = opts.instanceResults || {};
     opts.instanceResults[tro.id] = tro;
 
-    var testconn = $.ajax({
-      url: './download?size=' + start
-      ,progress: function(e) {
-        var p = ((e.loaded/e.total) * 100).toFixed(2);
-        var addi = {
-          percent: p
-          ,i: e.loaded
-          ,size: e.total || start
-          ,startTime: _startTime
-          ,endTime: Date.now()
-          ,speed: {}
-        };
+    // var testconn = $.ajax({
+    //   url: './download?size=' + start
+    //   ,progress: function(e) {
+    //     var p = ((e.loaded/e.total) * 100).toFixed(2);
+    //     var addi = {
+    //       percent: p
+    //       ,i: e.loaded
+    //       ,size: e.total || start
+    //       ,startTime: _startTime
+    //       ,endTime: Date.now()
+    //       ,speed: {}
+    //     };
+
+//set content type as png to stop ISP compression
+         var testconn = $.ajax('./download?size=' + start, {
+        type: "post"
+        ,processData: false
+        ,contentType: "image/png"
+        ,headers: {}
+        ,progress: function(e) {
+          var p = ((e.loaded/e.total) * 100).toFixed(2);
+          var addi = {
+            percent: p
+            ,i: e.loaded
+            ,size: e.total || start
+            ,startTime: _startTime
+            ,endTime: Date.now()
+            ,speed: {}
+          };
         addi.runningTime = addi.endTime - addi.startTime;
 
         addi.speed.Bps = (addi.i/(addi.runningTime/1000));
