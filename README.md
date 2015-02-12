@@ -18,4 +18,4 @@ You can change the port in /bin/config.js
 Lots, I imagine.
 
 ##Credits
-This uses Knockout.js, JQuery-Ajax-Progress and an adapted version of Speedtest.
+This uses <a href="http://knockoutjs.com/">Knockout.js</a>, <a href="https://github.com/englercj/jquery-ajax-progress">JQuery-Ajax-Progress</a> and an adapted version of <a href="https://github.com/soterinsights/speedtest">Speedtest</a>
