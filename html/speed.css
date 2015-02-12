@@ -5,7 +5,7 @@
   color: #336699;
   font-size: 12px;
   list-style: none;
- 
+  z-index: 0;
 }
 
 .results-details {
@@ -14,7 +14,7 @@
 
 .result{
 	min-width: 80%;
-	margin-left: 10%;
+	min-height: 450px;
 	margin-bottom: 40px;
     border-radius: 4px;
     height: auto;
@@ -27,6 +27,10 @@
     text-align: left;
 }
 
+.stats{
+	display: none;
+	padding: 0px 10px; float:left; text-align:left;border-right: 1px solid black; display: none;
+}
 
 @media screen and (max-width: 620px) {
 .result{
@@ -42,7 +46,33 @@
     color: #fff;
     overflow: auto;
     text-align: left;
-}}
+}
+
+button{
+	background: #fff;
+    color: #444;
+    font-size: 1em;
+    height: auto;
+    width: 130px;
+    line-height: 30px;
+    margin: 20px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+    margin-top: -15px;
+    border-radius: 5px;
+   border: 1px solid #428BCA;
+   
+}
+
+button:hover {
+  background: #ec3923;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+
+}
 
 
 .result h3{
@@ -62,7 +92,7 @@
 }
 
 body{
-font-family: 'Open Sans', sans-serif;
+font-family: 'Lato', sans-serif;
 padding: 0;
 margin: 0;
 color: #444;
@@ -72,43 +102,44 @@ color: #444;
 button{
 	background: #fff;
     color: #444;
-    font-size: 15px;
+    font-size: 1em;
     height: auto;
-    width: 120px;
-    line-height: 40px;
+    width: 130px;
+    line-height: 30px;
     margin: 15px 5px;
     text-align: center;
     border: 0;
     transition: all 0.3s ease 0s;
     margin-top: -15px;
-    border-radius: 10px;
+    border-radius: 5px;
    border: 1px solid #428BCA;
    
 }
 
 button:hover {
-  background: #428BCA;
+  background: #ec3923;
+  border: 1px solid #fff;
   color: #fff;
 }
 
 
 h1{
-	margin: 0 0 0 0;
+	margin: 25 0 0 0px;
 	font-size: 3.5em;
 	font-weight: 600;
 	text-align: center;
 }
 
 h2{
-	margin: 15 0 0 0;
-	font-size: 3.5em;
+	margin: 10 0 0 0;
+	font-size: 3em;
 	font-weight: 500;
 	text-align: center;
 }
 
 h3{
 	margin: 15 0 0 0;
-	font-size: 1.5em;
+	font-size: 2.5em;
 	font-weight: 500;
 	text-align: center;
 }
@@ -117,13 +148,33 @@ a{
 	text-decoration: none;
 	font-size: inherit;
 	color: inherit;
+	color: #336699;
 }
-p{
-	font-size: .7em;
-	font-weight: 300;
-	letter-spacing: 0.01em;
-	text-align: center;
 
+a:hover{
+	text-decoration: none;
+	font-size: inherit;
+	color: inherit;
+	color: #ec3923;
+}
+
+hr{
+	color: #F9F2F2;
+	width: 80%;
+}
+
+
+p{
+font-size: 1.1em;
+line-height: 1.65em;
+font-weight: 300;
+letter-spacing: 0.01em;
+text-align: center;
+}
+
+
+.about p{
+	text-align: left;
 }
 
 small{
@@ -131,7 +182,7 @@ small{
 	font-weight: 300;
 	letter-spacing: 0.01em;
 	text-align: center;
-	color: #777;
+	color: #;
 }
 
 section{
@@ -146,7 +197,19 @@ section{
 }
 
 
+code {
+background-color: #F9F2F2;
+color: #C7254E;
+}
 
+li {
+list-style-type: none;
+font-size: inherit;
+line-height: 1.65em;
+font-weight: 300;
+letter-spacing: 0.01em;
+text-align: left;
+}
 
 
 

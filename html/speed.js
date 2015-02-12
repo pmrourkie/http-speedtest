@@ -217,7 +217,7 @@ var speedtest = (function() {
 
 //set content type as png to stop ISP compression
          var testconn = $.ajax('./download?size=' + start, {
-        type: "post"
+        type: "get"
         ,processData: false
         ,contentType: "image/png"
         ,headers: {}

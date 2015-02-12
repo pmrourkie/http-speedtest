@@ -1,9 +1,17 @@
 <html>
-
 <head>
     <link rel="stylesheet" type="text/css" href="./speed.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"> 
 <title>HTTP/JS Speedtest</title>
+
+<meta name="description" content="HTTP/JS Speedtest" />
+<meta name="keywords" content="speedtest, http speedtest, throughput test" />
+<meta name="author" content="Richard Allen" />   
+<meta property="og:title" content="HTTP/Js speedtest" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/img/pic.png" />
+<meta property="og:url" content="http://speedtest.richardallen.co.uk" />
+<meta property="og:description" content="This is a simple HTTP speedtest that uses Javascript to download & upload a file at certain sizes to test the speed of a connection between your browser and my server." />
 </head>
 
 
@@ -17,13 +25,12 @@
             <div class="alert-box error"><span>Warning! </span>This is an Alpha</div>
 
             <h1>HTTP JS speed tester</h1>
-            <small><script language="Javascript" src="http://www.ip2phrase.com/ip2phrase.asp?template=Your IP  is <IP> and you are connecting from <CITY> via <ISP>."></script> 
+            <small><script language="Javascript" src="http://www.ip2phrase.com/ip2phrase.asp?template=Your IP  is <IP> and you are connecting from <CITY> via <ISP>."></script></small>
 
         </div>
     </section>
-
     <section> 
-            <p>This is a really simple HTTP speed test that uses Javascript to download & upload files at certain sizes to test the speed of a connection over HTTP between your browser and my server. If you're connecting off an ultra fast connection you may see lower measurements than what you can actually achieve, this is due to the bandwidth of my server.</p>
+            <p>This is a simple HTTP speedtest that uses Javascript to download & upload a file at certain sizes to test the speed of a connection between your browser and my server. To find out more, scroll down...</p>
 
     </section>
 
@@ -37,10 +44,12 @@
 
         <script type="text/html" id="tpl-test-results">
             <div>
+
                 
 
                 <div data-bind="if: down.results.length" class="results-details">
                     <div class="download">
+             
                         <h4>Download:</h4>
 
                         <div class="stat_download_mean" data-bind="visible: down.stats.mean">
@@ -56,8 +65,7 @@
                         
 
                     </div>
-
-                    <ul data-bind="template: { name: 'tpl-test-results-items', foreach: down.results} "></ul>
+                    <ul data-bind="template: { name: 'tpl-test-results-items', foreach: down.results} "></span></ul>
                 </div>
 
 
@@ -96,10 +104,10 @@
         </div>
         
         <div style="margin:0px auto;">
-            <div id="result" class="result" style="float:left; width: 500px; min-height: 400px; border-right: 1px solid black;">
+            <div id="result" class="result">
                <div data-bind="template: {name: 'tpl-test-results', foreach: allresults}"></div>
             </div>
-            <div id="stats" style="padding: 0px 10px; float:left; text-align:left;border-right: 1px solid black; display: none;">
+            <div id="stats" class="stats">
                 <div id="download">
                     <h3>Download</h3>
                     <div id="stat_download_slowest">Slowest: <span></span></div>
@@ -114,8 +122,47 @@
                 </div>
             </div>
           
+        </section>
+       
+
+
+        
+ <section class="about">
+
+<p id="timer"></p>
+    <h3>What is this?</h3>
+    <p>This is a simple Javascript that works out the throughput between a client, in this case your web browser and my server in Amsterdam.</p> 
+  <!--   <p>One of the most widely misunderstood concepts of connection a to the 'Internet' is the confusion between speed and capacity, or throughput/bandwidth and latency. Both of these are interdependent and together give the perceived speed of how quickly a webpage loads. Most ISPs and customers will answer when asked that their download speed is '24Mb' or '2Mb', in reality this isn't the speed...but the capacity or the amount of data that can downloaded. There are many factors that can impact speed, detailed below, but the main two are the <code>latency</code>: The time required to perform an action, in this case a round trip and <code>Throughput</code>: The number of actions or results produced within a given time. An analogy of this could be a sandwich factory. The working day is 8 hours, and in that 8 hours 1 person can make 150 sandwiches. In this the latency is 8 hours and the throughput is 150 sandwiches, or .3 sandwiches per minute. If we employ a second person to the factory then the latency remains the same, 8 hours, but the throughput doubles to 300 sandwiches per day, or .6 sandwiches per minute.</p>
+
+    <p>Below is a really simple diagram showing this:
+        <img src="/img/example.png"></p>
+ -->
+
+    <h3>How does it work?</h3>
+
+        <p>The throughput test works by taking the <code>StartTime</code> of when you start the test and then creates a binary file on the fly to download (You can test this yourself at <code><a href="http://speedtest.richardallen.co.uk/download?size=">http://speedtest.richardallen.co.uk/download?size=</a>ENTERSIZE</code>). The download request starts with a file size of <code>131072 bytes</code> and doubles after each test, up to a maximum of <code>52428800 bytes</code>. The <code>EndTIme</code> is then subtracted from the <code>StartTime</code> giving us the <code>RunTime</code>. In turn this allows us to work out the speed by dividing the <code>FileSize</code> by <code>RunTime</code> then by <code>1000</code> to give us the speed in <code>Bytes Per Second</code>. Before it is displayed on the screen it is translated into a more readable format by displaying it in either Bytes Per Second, Kilobytes per Second or Megabytes per second based on a certain threshold.</p>
+    
+
+<h3>Install/Run it yourself</h3>
+<p>You can grab the code from <a href="https://github.com/rourkie/http-speedtest.git">Github</a>, of follow the below instructions:</p>
+    <ul>
+        <li> 1. Install the latest version of <code>Node.js</code></li>
+        <li> 2. Clone the git by opening terminal and typing: <code>git clone https://github.com/rourkie/http-speedtest.git</code></li>
+        <li> 3. In terminal, go to the <code>http-speedtest</code> directory</li>
+        <li> 4. Run <code> node ./bin/speed.js</code></li>
+        <li> 5. Open up your browser and head to <code>http://hostname:8080/</code> - This will be <code>http://localhost:8080</code> if running locally.
+    </ul>
+  <p>You can change the port in <code>/bin/config.js</code>
+
+<h3>Issues</h3>
+<p>Lots, I imagine.</p>
+
+<h3>Credits</h3>
+<p>This uses <a href="http://knockoutjs.com/">Knockout.js</a>, <a href="https://github.com/englercj/jquery-ajax-progress">JQuery-Ajax-Progress</a> and an adapted version of <a href="https://github.com/soterinsights/speedtest">Speedtest</a>.
+<p></p>
+        </section>
             <div style="clear:both;"> </div>
-             <p>Created by <a href="http://www.twitter.com/pmrourkie">@pmrourkie</a> and under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+             <p>Built by <a href="http://www.twitter.com/pmrourkie">@pmrourkie</a> and under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">MIT License.</a> This was built for demonstration purposes only.</p>
         </div>
     <div>
 

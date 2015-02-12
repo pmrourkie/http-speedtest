@@ -7,6 +7,10 @@ testInstance.prototype.run = function(kind, bsize, opts) {
         download: {
             url: "./download?size={bsize}"
             ,opts: {
+                type: "get"
+                ,processData: false
+                ,contentType: "image/png"
+                ,headers: {}
                 
             }
         }
